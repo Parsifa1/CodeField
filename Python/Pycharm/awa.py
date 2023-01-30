@@ -1,9 +1,3 @@
-a = 1
-b = 2
-print(a)
-print(b)
-c = a
-a = b
-b = c
-print(a)
-print(b)
+import numpy as np
+a = np.array([[1, 3, 5], [2, 4, 6], [3, 5, 7]])
+print(a + 10)
