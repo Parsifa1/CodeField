@@ -15,6 +15,4 @@ def arr():
     print(res)
 
 
-# git测试
-# git测试
 arr()
