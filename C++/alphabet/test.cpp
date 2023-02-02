@@ -35,6 +35,7 @@ void test()  // 测试代码
     d1.PrintDate();
 }
 int main() {
+    int a = 1;
     test();
     return 0;
 }
