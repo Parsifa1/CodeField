@@ -1,5 +1,4 @@
 #include<bits/stdc++.h>
-#define node node
 using namespace std;
 
 struct node {
