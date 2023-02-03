@@ -2,5 +2,3 @@ bin
 Test
 c_cpp_properties.json
 .idea
-
-C++/.vscode/c_cpp_properties.json
