@@ -7,6 +7,8 @@ def arr():
     aeq = np.array([[1, 1, 1]])
     beq = np.array([7])
     print("这是一个中文测试")
+    print("测试merge是否正常")
+    print("测试merge是否正常2")
     a = np.array([[-2, 5, -1], [1, 3, 1]])
     b = np.array([-10, 12])
     x1, x2, x3 = (0, None), (0, None), (0, None)
