@@ -17,7 +17,7 @@ def arr():
     print(res)
     print("这句话是第二句在ipad完成的")
     print("这句话是第三句在ipad完成的")
-
+# 庆祝配置成功！
 # 第二次测试git
 # 第三次测试git
 arr()
