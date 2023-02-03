@@ -148,13 +148,13 @@ void showstudent(const book* abs) {
     if (abs->size)  // 判断人数是否为零
     {
         for (int i = 0; i < abs->size; i++) {
-            cout << "姓名" << abs->studentarray[i].name << "班级"
-                 << abs->studentarray[i].clas << "语文成绩"
-                 << abs->studentarray[i].chin << "数学成绩"
-                 << abs->studentarray[i].math << "英语成绩"
-                 << abs->studentarray[i].eng << "物理成绩"
-                 << abs->studentarray[i].phy << "平均成绩"<<endl;
-            printf("%.2f",abs->studentarray[i].ave);
+            cout << "姓名：" << abs->studentarray[i].name <<"\n"<< "班级："
+                 << abs->studentarray[i].clas <<"\n"<< "语文成绩："
+                 << abs->studentarray[i].chin <<"\n"<< "数学成绩："
+                 << abs->studentarray[i].math <<"\n"<< "英语成绩："
+                 << abs->studentarray[i].eng  <<"\n"<< "物理成绩："
+                 << abs->studentarray[i].phy <<"\n"<< "平均成绩：";
+            printf("%.2f \n",abs->studentarray[i].ave);
         }
     } else {
         cout << "成绩管理系统为空" << endl;
