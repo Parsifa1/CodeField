@@ -37,5 +37,6 @@ void test()  // 测试代码
 int main() {
     int a = 1;
     test();
+    cout<<"第一句在ipad上完成的语句";
     return 0;
 }
