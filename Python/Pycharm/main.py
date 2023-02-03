@@ -15,7 +15,7 @@ def arr():
     x1, x2, x3 = (0, None), (0, None), (0, None)
     res = op.linprog(-z, a, b, aeq, beq, bounds=(x1, x2, x3), method='highs')
     print(res)
-
+    print("这句话是第二句在ipad完成的")
 
 # 第二次测试git
 # 第三次测试git
