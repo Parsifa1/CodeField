@@ -31,7 +31,7 @@
             "problemMatcher": "$gcc" //捕捉编译时编译器在终端里显示的报错信息，将其显示在vscode的‘问题’面板里
         },
         {//这个大括号里是‘运行(run)’任务，一些设置与上面的构建任务性质相同
-            "label": "run", 
+            "label": "Code", 
             "type": "shell", 
             "dependsOn": "build", //任务依赖，因为要运行必须先构建，所以执行这个任务前必须先执行build任务，
             
