@@ -37,5 +37,6 @@ int main() {
     cout<<"第一句在ipad上完成的语句";
     cout << "测试merge隔离是否有效";
     cout << "再次测试merge隔离是否有效";
+    cout << "在装备gitlens之后，测试merge隔离是否有效";
     return 0;
 }
