@@ -35,7 +35,7 @@ void ofbook(const book* abs);       // 6.备份学生成绩
 void ifbook(book* abs);             // 7.恢复学生成绩
 void cleanstudent(book* abs);       // 8.清空学生成绩
 void inputstudent(book* abs);       // 9.导入学生成绩
-void welcome(book* abs);            // 10.欢迎界面
+void welcome();            // 10.欢迎界面
 void end();                         // 11.结束
 // 主函数
 int main() {
@@ -79,7 +79,7 @@ int main() {
                 inputstudent(&abs);
                 break;
             case 10:
-                welcome(&abs);
+                welcome();
                 break;
             default:
                 cout << "输入错误，请重新输入" << endl;
