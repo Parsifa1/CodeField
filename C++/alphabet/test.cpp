@@ -35,5 +35,6 @@ void test()  // 测试代码
 int main() {
     test();
     cout<<"第一句在ipad上完成的语句";
+    cout << "测试merge隔离是否有效";
     return 0;
 }
