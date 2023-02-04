@@ -291,7 +291,7 @@ void modifystudent(book* abs) {
         int b = abs->studentarray[n].math;
         int c = abs->studentarray[n].eng;
         int d = abs->studentarray[n].phy;
-        abs->studentarray[n].ave = (a + b + c + d) / 4;
+        abs->studentarray[n].ave = (a + b + c + d) / 4.0;
         cout << "修改成功" << endl;
     } else {
         cout << "查无此人" << endl;
@@ -354,7 +354,7 @@ void inputstudent(book* abs) {
         abs->studentarray[i].ave =
             (abs->studentarray[i].chin + abs->studentarray[i].math +
              abs->studentarray[i].eng + abs->studentarray[i].phy) /
-            4;
+            4.0;
     }
     cout << "成功导入！" << endl;
     abs->size += n;
@@ -364,7 +364,7 @@ void inputstudent(book* abs) {
     return;
 }
 // 10.欢迎界面
-void welcome(book* abs) {
+void welcome() {
     cout << "**************************" << endl
          << "*****学生成绩管理系统*****" << endl
          << "*******制作者：李简平*****" << endl

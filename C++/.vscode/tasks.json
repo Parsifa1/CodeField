@@ -28,7 +28,7 @@
                 "showReuseMessage": false, //设为false后，上面的‘任务将被终端重用’提示就不会出现了
                 "close": true //设为true后，执行完这个task后会自动关闭终端面板
             },
-            "problemMatcher": "$gcc" //捕捉编译时编译器在终端里显示的报错信息，将其显示在vscode的‘问题’面板里
+            //"problemMatcher": "$gcc" //捕捉编译时编译器在终端里显示的报错信息，将其显示在vscode的‘问题’面板里
         },
         //修改这个大括号里的内容，可以实现运行exe文件的功能
         {//这个大括号里是‘运行(run)’任务，一些设置与上面的构建任务性质相同
