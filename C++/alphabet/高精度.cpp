@@ -33,7 +33,7 @@ namespace Bignum
     template <typename TP,typename...Etc>
     inline void read(TP &n,Etc &...etcs){read(n);read(etcs...);}
     /*BIGNUM*/
-    class bignum;
+    struct bignum;
     bignum abs(const bignum &);
     bignum operator - (bignum);
     bool operator ! (const bignum &);
