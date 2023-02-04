@@ -35,7 +35,7 @@ void ofbook(const book* abs);       // 6.备份学生成绩
 void ifbook(book* abs);             // 7.恢复学生成绩
 void cleanstudent(book* abs);       // 8.清空学生成绩
 void inputstudent(book* abs);       // 9.导入学生成绩
-void welcome();            // 10.欢迎界面
+void welcome();                     // 10.欢迎界面
 void end();                         // 11.结束
 // 主函数
 int main() {
@@ -148,13 +148,14 @@ void showstudent(const book* abs) {
     if (abs->size)  // 判断人数是否为零
     {
         for (int i = 0; i < abs->size; i++) {
-            cout << "姓名：" << abs->studentarray[i].name <<"\n"<< "班级："
-                 << abs->studentarray[i].clas <<"\n"<< "语文成绩："
-                 << abs->studentarray[i].chin <<"\n"<< "数学成绩："
-                 << abs->studentarray[i].math <<"\n"<< "英语成绩："
-                 << abs->studentarray[i].eng  <<"\n"<< "物理成绩："
-                 << abs->studentarray[i].phy <<"\n"<< "平均成绩：";
-            printf("%.2f \n",abs->studentarray[i].ave);
+            cout << "姓名：" << abs->studentarray[i].name << "\n"
+                 << "班级：" << abs->studentarray[i].clas << "\n"
+                 << "语文成绩：" << abs->studentarray[i].chin << "\n"
+                 << "数学成绩：" << abs->studentarray[i].math << "\n"
+                 << "英语成绩：" << abs->studentarray[i].eng << "\n"
+                 << "物理成绩：" << abs->studentarray[i].phy << "\n"
+                 << "平均成绩：";
+            printf("%.2f \n", abs->studentarray[i].ave);
         }
     } else {
         cout << "成绩管理系统为空" << endl;
