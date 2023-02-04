@@ -1,5 +1,4 @@
 -Wall
--std=c++17  
 -Wunused-variable     
 -static-libgcc
 -fsyntax-only
