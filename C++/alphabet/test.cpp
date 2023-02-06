@@ -34,9 +34,6 @@ void test()  // 测试代码
 }
 int main() {
     test();
-    cout<<"第一句在ipad上完成的语句";
-    cout << "测试merge隔离是否有效";
-    cout << "再次测试merge隔离是否有效";
-    cout << "在装备gitlens之后，测试merge隔离是否有效";
+    cout<<"对于修改后的linux分支进行例行merge"<<"\n";
     return 0;
 }
