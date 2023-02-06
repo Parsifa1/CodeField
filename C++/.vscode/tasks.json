@@ -10,7 +10,7 @@
                 "-o", //指定输出文件的路径和名称
                 "${fileDirname}\\bin\\${fileBasenameNoExtension}.exe", //承接上一步的-o，让可执行文件输出到源码文件所在的文件夹下的bin文件夹内，并且让它的名字和源码文件相同
                 "-g", //生成和调试有关的信息
-                "-Wall", // 开启额外警告
+                "-w", //关闭警告
                 "-Wno-unused-but-set-variable", // 关闭未使用变量的警告
                 "-static-libgcc", // 静态链接libgcc
                 "-static-libstdc++", // 静态链接libstdc++
