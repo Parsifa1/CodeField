@@ -12,4 +12,6 @@ def arr():
     res = op.linprog(-z, a, b, aeq, beq, bounds=(x1, x2, x3), method='highs')
     print(res)
     print("测试gitlens")
+
+
 arr()
