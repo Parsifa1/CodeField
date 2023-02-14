@@ -34,6 +34,6 @@ void test()  // 测试代码
 }
 int main() {
     test();
-    cout<<"对于修改后的linux分支进行例行merge"<<"\n";
+    // cout<<"对于修改后的linux分支进行例行merge"<<"\n";
     return 0;
 }

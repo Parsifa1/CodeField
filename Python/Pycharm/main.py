@@ -11,7 +11,7 @@ def arr():
     x1, x2, x3 = (0, None), (0, None), (0, None)
     res = op.linprog(-z, a, b, aeq, beq, bounds=(x1, x2, x3), method='highs')
     print(res)
-    print("测试gitlens")
+    # print("测试gitlens")
 
 
 arr()
