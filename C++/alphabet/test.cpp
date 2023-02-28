@@ -33,7 +33,9 @@ void test()  // 测试代码
     d1.PrintDate();
 }
 int main() {
+    int cnt = 0;
+    cnt++;
     test();
-    // cout<<"对于修改后的linux分支进行例行merge"<<"\n";
+    cout<<"修改配置之后例行merge"<<"\n";
     return 0;
 }
