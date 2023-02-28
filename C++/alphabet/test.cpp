@@ -34,7 +34,7 @@ void test()  // 测试代码
 }
 int main() {
     int cnt = 0;
-    cnt++;
+    cout<<cnt;
     test();
     cout<<"修改配置之后例行merge"<<"\n";
     return 0;
