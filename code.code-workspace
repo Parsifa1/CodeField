@@ -9,12 +9,12 @@
             "path": "C++"
         },
         {
-            "name": "Python",
-            "path": "Python"
-        },
-        {
             "name": "LaTeX",
             "path": "LaTeX"
+        },
+        {
+            "name": "Python",
+            "path": "Python"
         }
     ],
     "settings": {
