@@ -96,6 +96,7 @@
         "editor.detectIndentation": false,
         "editor.tabSize": 4,
         "editor.formatOnPaste": true,
-        "editor.formatOnSave": false
+        "editor.formatOnSave": false,
+        "C_Cpp.intelliSenseEngine": "disabled"
     }
 }
