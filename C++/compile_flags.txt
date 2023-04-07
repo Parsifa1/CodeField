@@ -1,0 +1,8 @@
+-Wall
+--target=x86_64-w64-windows-gnu
+-std=c++20  
+-Wunused-variable   
+-Wno-unused-but-set-variable  
+-static-libgcc
+-fsyntax-only
+-l stdc++
