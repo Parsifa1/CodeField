@@ -10,8 +10,9 @@ int main() {
         cin>> tim[i] >> value[i];
     }
     for(int i = 1; i <= m;i++) {
-        for(int j = tim[i]; j <= t;j++) {
-            dp[j] = max(dp[j],dp[j - tim[i]] + value[i]);
+        for (int j = 0; j <= t; j++) {
+            if(j >= tim[i])
+                dp[j] = max(dp[j],dp[j - tim[i]] + value[i]);
         }
     }
     cout<< dp[t] << endl;
