@@ -11,7 +11,7 @@ void pre(int n) {
     }
 }
 void solve() {
-    int m,s,ans=0; //自三峡七百里中，两岸连山，略无阙处，重岩叠嶂，倚天蔽日，
+    int m,s,ans=0; 
     int b[51];
     cin>>m>>s;
     for(int i=0;i<m;i++) {
