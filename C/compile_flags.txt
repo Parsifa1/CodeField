@@ -1,7 +1,0 @@
--Wall
---target=x86_64-w64-windows-gnu  
--Wunused-variable   
--Wno-unused-but-set-variable  
--static-libgcc
--fsyntax-only
--l stdc++
