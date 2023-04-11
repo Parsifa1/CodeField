@@ -21,7 +21,7 @@ bool dcd(node x,node y) {
 
 
 int main() {
-    int n,p; cin>>n;
+    int n,p=0; cin>>n;
         for(int i=1;i<=n;i++) {
             cin>>stu[i].ch>>stu[i].ma>>stu[i].en;
             stu[i].ans=stu[i].ch+stu[i].ma+stu[i].en;

@@ -1,13 +1,20 @@
 {
     "folders": [
         {
-            "path": "C++"
+            "name": "C",
+            "path": "C"
         },
         {
+            "name": "LaTeX",
+            "path": "LaTeX"
+        },
+        {
+            "name": "Python",
             "path": "Python"
         },
         {
-            "path": "LaTeX"
+            "name": "C++",
+            "path": "C++"
         }
     ],
     "settings": {
@@ -89,6 +96,10 @@
         "editor.detectIndentation": false,
         "editor.tabSize": 4,
         "editor.formatOnPaste": true,
-        "editor.formatOnSave": false
+        "editor.formatOnSave": false,
+        "C_Cpp.intelliSenseEngine": "disabled",
+        "files.autoSave": "onFocusChange",
+        "editor.fontSize": 12.5,
+        "editor.fontFamily": "JetBrains Mono,Consolas,'Courier New',MesloLGM NF, monospace"
     }
 }
