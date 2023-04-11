@@ -9,4 +9,5 @@ int main() {
     cout<<sizeof(*p)<<"\n"<<sizeof(**p)<<endl;
     cout<<a<<"\n"<<*a<<"\n"<<**a<<endl;
     cout<<sizeof(a)<<"\n"<<sizeof(*a)<<"\n"<<sizeof(**a)<<endl;
+    //测试配置文件是否正常工作
 }
