@@ -95,7 +95,7 @@
         "editor.codeActionsOnSave": {},
         "editor.detectIndentation": false,
         "editor.tabSize": 4,
-        "editor.formatOnPaste": true,
+        "editor.formatOnPaste": false,
         "editor.formatOnSave": false,
         "C_Cpp.intelliSenseEngine": "disabled",
         "files.autoSave": "onFocusChange",
