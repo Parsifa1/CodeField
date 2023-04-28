@@ -7,16 +7,13 @@ int solve() {
     int k, n, cnt[3];
     memset(cnt, 0, sizeof(cnt));
     cin >> n >> k;
-    for (int i = n;  i >= 0; i--) {
-        for (int j = n; j >= 0; j--) {
-            if (C(i) + C(j) == k && i + j == n) {
-                cnt[1] = i;
-                cnt[2] = j;
-                n -= i + j;
-                k -= C(i) + C(j);
-                i = -1;
-                j = -1;
-            }
+    for (int i = n; i >= 0; i--) {
+        if (C(i) + C(n - i) == k) {
+            cnt[1] = i;
+            cnt[2] = n - i;
+            n = 0;
+            k = 0;
+            break;
         }
     }
 
