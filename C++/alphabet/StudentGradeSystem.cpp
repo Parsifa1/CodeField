@@ -1,6 +1,7 @@
 #include <cstring>
 #include <fstream>
 #include <iostream>
+#include <conio.h>  
 using namespace std;
 
 #define MAX 1000  // 学生容量
@@ -38,56 +39,56 @@ void inputstudent(book* abs);       // 9.导入学生成绩
 void end();                         // 11.结束
 // 主函数
 int main() {
-    int select;
+    char select;
     book abs;
     abs.size = 0;
     while (true) {
         showMenu();  // 菜单调用
-        cin >> select;
+        select = getch();
         system("cls");
         switch (select) {
-            case 0:
+            case '0':
                 end();
                 break;
-            case 1:
+            case '1':
                 addstudent(&abs);
                 break;
-            case 2:
+            case '2':
                 showstudent(&abs);
                 break;
-            case 3:
+            case '3':
                 deletestudent(&abs);
                 break;
-            case 4:
+            case '4':
                 findstudent(&abs);
                 break;
-            case 5:
+            case '5':
                 modifystudent(&abs);
                 break;
-            case 6:
+            case '6':
                 ofbook(&abs);
                 break;
-            case 7:
+            case '7':
                 ifbook(&abs);
                 break;
-            case 8:
+            case '8':
                 cleanstudent(&abs);
                 break;
-            case 9:
+            case '9':
                 inputstudent(&abs);
                 break;
 
             default:
                 cout << "输入错误，请重新输入" << endl;
-                cout << "请按任意键并回车继续" << endl;  // MAC系统
-                scanf("%d", &select);
-                system("pause");
+                cout << "请按任意键继续......" << endl;  // MAC系统
+                select = getch();
+                // system("pause");
                 system("cls");
                 continue;
         }
-        cout << "请按任意键并回车继续" << endl;  // MAC系统
-        cin >> select;
-        system("pause");
+        cout << "请按任意键继续......" << endl;  // MAC系统
+        select = getch();
+        // system("pause");
         system("cls");
     }
     return 0;
@@ -104,7 +105,6 @@ void showMenu() {
          << "*****7、恢复学生成绩*****" << endl
          << "*****8、清空学生成绩*****" << endl
          << "*****9、导入学生成绩*****" << endl
-         << "*****10、 欢迎界面  *****" << endl
          << "*****0、退出成绩系统*****" << endl
          << "*************************" << endl;
 }
