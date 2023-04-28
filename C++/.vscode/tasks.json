@@ -14,6 +14,7 @@
                 "-Wno-unused-but-set-variable", // 关闭未使用变量的警告
                 "-static-libgcc",  // 静态链接libgcc
                 "-static-libstdc++", // 静态链接libstdc++
+                "-fexec-charset=GBK", // 指定源码文件的编码格式
             ],
             "group": {  //group表示‘组’，我们可以有很多的task，然后把他们放在一个‘组’里
                 "kind": "build",//表示这一组任务类型是构建

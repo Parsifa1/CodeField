@@ -35,7 +35,6 @@ void ofbook(const book* abs);       // 6.备份学生成绩
 void ifbook(book* abs);             // 7.恢复学生成绩
 void cleanstudent(book* abs);       // 8.清空学生成绩
 void inputstudent(book* abs);       // 9.导入学生成绩
-void welcome();                     // 10.欢迎界面
 void end();                         // 11.结束
 // 主函数
 int main() {
@@ -45,7 +44,6 @@ int main() {
     while (true) {
         showMenu();  // 菜单调用
         cin >> select;
-        system("pause");
         system("cls");
         switch (select) {
             case 0:
@@ -78,13 +76,11 @@ int main() {
             case 9:
                 inputstudent(&abs);
                 break;
-            case 10:
-                welcome();
-                break;
+
             default:
                 cout << "输入错误，请重新输入" << endl;
                 cout << "请按任意键并回车继续" << endl;  // MAC系统
-                cin >> select;
+                scanf("%d", &select);
                 system("pause");
                 system("cls");
                 continue;
@@ -364,14 +360,14 @@ void inputstudent(book* abs) {
     system("cls");
     return;
 }
-// 10.欢迎界面
-void welcome() {
-    cout << "**************************" << endl
-         << "*****学生成绩管理系统*****" << endl
-         << "*******制作者：李简平*****" << endl
-         << "**************************" << endl
-         << "**************************" << endl;
-}
+// // 10.欢迎界面
+// void welcome() {
+//     cout << "**************************" << endl
+//          << "*****学生成绩管理系统*****" << endl
+//          << "*******制作者：李简平*****" << endl
+//          << "**************************" << endl
+//          << "**************************" << endl;
+// }
 // 11.结束
 void end() {
     cout << "欢迎下次使用" << endl;
