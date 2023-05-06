@@ -12,7 +12,8 @@ int solve() {
     for(int i = 0; i < n; i++) {
         int cnt = 0;
         if(num[i] == 0) {
-            while(num[i++] == 0 && i < n) {
+            while(num[i] == 0 && i < n) {
+                i++;
                 cnt++;
             }
         }
