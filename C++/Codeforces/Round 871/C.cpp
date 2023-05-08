@@ -8,7 +8,7 @@ struct node {
     // id:1,2,3,4;
 } num[N];
 void solve() {
-    int n, ans1 = 200001, ans2 = 200001, ans3 = 200001;
+    int n, ans1 = 400002, ans2 = 400002, ans3 = 400002;
     cin >> n;
     string s;
     for (int i = 1; i <= n; i++) {
@@ -32,7 +32,7 @@ void solve() {
             ans3 = min(ans3, num[i].t);
         }
     }
-    if ((ans1 == 200001 || ans2 == 200001) && ans3 == 200001) {
+    if ((ans1 == 400002 || ans2 == 400002) && ans3 == 400002) {
         cout << -1 << endl;
         return;
     } else if (ans1 + ans2 < ans3) {
