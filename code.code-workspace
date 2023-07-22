@@ -5,16 +5,16 @@
             "path": "C"
         },
         {
+            "name": "C++",
+            "path": "C++"
+        },
+        {
             "name": "LaTeX",
             "path": "LaTeX"
         },
         {
             "name": "Python",
             "path": "Python"
-        },
-        {
-            "name": "C++",
-            "path": "C++"
         }
     ],
     "settings": {
