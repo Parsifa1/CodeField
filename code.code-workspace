@@ -1,6 +1,10 @@
 {
     "folders": [
         {
+            "name": "C",
+            "path": "C"
+        },
+        {
             "name": "LaTeX",
             "path": "LaTeX"
         },
