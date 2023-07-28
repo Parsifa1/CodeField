@@ -1,6 +1,6 @@
 -Wall
 -std=c++20
--Wunused-variable 
+-Wno-unused-variable
 -Wunknown-attributes   
 -static-libgcc
 -fsyntax-only
