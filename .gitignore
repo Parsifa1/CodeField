@@ -3,4 +3,5 @@ Test
 .idea
 .cph
 C++/Luogu/.cph/
+*.bin
 target
