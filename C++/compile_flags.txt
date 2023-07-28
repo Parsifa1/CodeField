@@ -1,0 +1,7 @@
+-Wall
+-std=c++2b
+-Wno-unused-variable
+-Wno-unknown-attributes   
+-static-libgcc
+-fsyntax-only
+-l stdc++
