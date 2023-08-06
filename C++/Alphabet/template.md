@@ -56,7 +56,7 @@ ull hash(std::string s) {
 ```
 
 
-## 二分图最大匹配 ： 增广路算法
+## 二分图最大匹配 ： 增广路算法（匈牙利算法）
 
 ```c++
 struct augment_path {
@@ -119,4 +119,6 @@ struct augment_path {
     return res;
   }
 };
+
 ```
+
