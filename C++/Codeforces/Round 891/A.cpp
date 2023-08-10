@@ -29,5 +29,5 @@ void solve() {
 
 int main() {
     int T; cin >> T;
-    while(T--) cin >> T;
+    while(T--) solve();
 }
