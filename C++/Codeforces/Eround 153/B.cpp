@@ -3,6 +3,12 @@ using namespace std;
 // #define int long long
 
 void solve() {
+    int m ,k, a1, ak;
+    cin >> m >> k >> a1 >> ak;
+    if(a1 >= m) {
+        cout << 0 << "\n";
+        return;
+    }
     
 }
 
