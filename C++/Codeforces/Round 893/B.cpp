@@ -13,7 +13,7 @@ void solve() {
     s[0] = 1 - d, s[m + 1] = n + 1;
     // for(auto x : s) cerr << x << " ";
     // cerr << "\n";
-    int sum = 0;
+    int sum = m;
     for(int i = 1; i <= m + 1; i++) {
         sum += (s[i] - s[i - 1] - 1 ) / d;
     }
@@ -24,7 +24,7 @@ void solve() {
         res += (s[i + 1] - s[i - 1] - 1) / d;
         res -= (s[i] - s[i - 1] - 1) / d;
         res -= (s[i + 1] - s[i] - 1) / d;
-        res += m - 1;
+        res--;
         if(res == minx) cnt++;
         if(res < minx){
             cnt = 1;
