@@ -7,28 +7,25 @@ struct node {
 };
 
 int n;
-node *head, *q;
+node *head, *tail;     //头指针，尾指针
 
 void create() {
-    head = NULL;
-    q = NULL;
-    for (int i = 0; i < n; i++) {
+    node* t = new node;
+    cin >> t->data, t->next = NULL;
+    head = t, tail = t;
+    for(int i = 1; i < n; i++) {
         node* p = new node;
         cin >> p->data;
         p->next = NULL;
-        if (head == NULL) {
-            head = p;
-        } else {
-            q->next = p;
-        }
-        q = p;
+        tail->next = p;
+        tail = p;
     }
 }
 
 void insert(int x) {
     node* t = head;
     while (t != NULL) {
-        if (t->next->data > x) {
+        if (t->next->data >= x) {
             node* p = new node;
             p->data = x;
             p->next = t->next;
@@ -52,6 +49,6 @@ int main() {
     cin >> n;
     create();
     print();
-    insert(6);
+    insert(4);
     print();
 }
