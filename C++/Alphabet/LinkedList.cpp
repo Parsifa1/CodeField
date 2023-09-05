@@ -1,35 +1,34 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 struct node {
     int data;
-    node *next;
+    node* next;
 };
 
-    int n; 
-    node *head,*q;
+int n;
+node *head, *q;
 
 void create() {
     head = NULL;
     q = NULL;
-    for(int i=0;i<n;i++) {
+    for (int i = 0; i < n; i++) {
         node* p = new node;
-        cin>>p->data;
+        cin >> p->data;
         p->next = NULL;
-        if(head == NULL) {
+        if (head == NULL) {
             head = p;
         } else {
             q->next = p;
         }
         q = p;
     }
-    
 }
 
 void insert(int x) {
     node* t = head;
-    while(t!=NULL) {
-        if(t->next->data > x) {
+    while (t != NULL) {
+        if (t->next->data > x) {
             node* p = new node;
             p->data = x;
             p->next = t->next;
@@ -38,21 +37,21 @@ void insert(int x) {
         }
         t = t->next;
     }
-} 
+}
 
 void print() {
-    node *t = head;
-    while(t!=NULL) {
-        cout<<t->data<<" ";
+    node* t = head;
+    while (t != NULL) {
+        cout << t->data << " ";
         t = t->next;
     }
-    cout<<endl;
+    cout << endl;
 }
 
 int main() {
-    cin>>n;
+    cin >> n;
     create();
     print();
     insert(6);
     print();
-}   
+}
