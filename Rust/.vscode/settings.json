@@ -1,0 +1,21 @@
+{
+    "rust-analyzer.checkOnSave": true,
+    
+        "rust-analyzer.server.extraEnv": {
+            "CARGO": "cargo.exe", //如果是windows 系统可以在这里加"my-cargo.exe" or "cargo.exe"
+        },
+        "rust-analyzer.linkedProjects": [
+            "E:/CodeField/Rust/Cargo.toml",
+            // {
+            //     "sysroot_src": "C:/Users/Parsifal/.rustup/toolchains/stable-x86_64-pc-windows-gnu/lib/rustlib/src/rust/library",
+            //     "crates": [
+            //         {
+            //             "root_module": "src/main.rs",
+            //             "edition": "2018",
+            //             "deps": [],
+            //         },
+            //     ]
+            // }
+        ]
+    
+}
