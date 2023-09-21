@@ -1,3 +1,31 @@
+## C++读入优化
+
+
+```c++	
+// 关闭输入输出缓存，使效率提升
+	ios::sync_with_stdio(false);
+	cin.tie(NULL); cout.tie(NULL);
+    // 解除cin和cout的默认绑定，来降低IO的负担使效率提升
+```
+
+## 二分
+### 往左找答案
+```c++
+while (l < r) {
+    int mid = (l + r) >> 1;	//(l+r)/2
+    if (check(mid))  r = mid;    // check()判断mid是否满足性质
+    else l = mid + 1;
+}
+```
+### 往右找答案
+```c++
+while (l < r) {
+    int mid = (l + r + 1) >> 1;	//(l+r+1)/2
+    if (check(mid))  l = mid;
+    else r = mid - 1;
+}
+```
+
 ## KMP ：字符串匹配算法
 
 
@@ -26,19 +54,6 @@ vector<int> find_occurrences(string text, string pattern) {
   return v;
 }
 
-
-```
-
-## C++读入优化
-
-
-```c++	
-// 关闭输入输出缓存，使效率提升
-	ios::sync_with_stdio(false);
-	cin.tie(NULL); cout.tie(NULL);
-    // 解除cin和cout的默认绑定，来降低IO的负担使效率提升
-```
-
 ## 字符串哈希
 
 
@@ -54,7 +69,6 @@ ull hash(std::string s) {
 }
 
 ```
-
 
 ## 二分图最大匹配 ： 增广路算法（匈牙利算法）
 
@@ -119,6 +133,7 @@ struct augment_path {
     return res;
   }
 };
+
 
 ```
 ### 位运算：
