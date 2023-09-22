@@ -11,9 +11,10 @@
 ## 二分
 ### 往左找答案
 ```c++
+
 while (l < r) {
     int mid = (l + r) >> 1;	//(l+r)/2
-    if (check(mid))  r = mid;    // check()判断mid是否满足性质
+    if (check(mid))  r = mid;    // check()判断mid是否满足性质,即是否可行
     else l = mid + 1;
 }
 ```
