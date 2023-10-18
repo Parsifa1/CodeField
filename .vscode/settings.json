@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "iostream": "cpp",
+        "intrinsics.h": "c",
+        "ostream": "cpp",
+        "vector": "cpp",
+        "*.c": "c",
+        "ranges": "cpp"
+    }
+}
