@@ -6,7 +6,7 @@ int main() {
     int n, ans[15], cnt;
     std::cin >> n;
 
-    auto dfs = [&](auto && self, int x) {
+    auto dfs = [&](auto&& self, int x) {
         if (x == n + 1) {
             cnt++;
             if (cnt <= 3) {
