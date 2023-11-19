@@ -8,8 +8,8 @@
     // 解除cin和cout的默认绑定，来降低IO的负担使效率提升
 ```
 
-## 二分
-### 往左找答案
+### 二分
+#### 往左找答案
 ```c++
 
 while (l < r) {
@@ -26,7 +26,6 @@ while (l < r) {
     else r = mid - 1;
 }
 ```
-
 ### 拓展欧几里得求解线性同余方程组
 
 ```c++
@@ -80,6 +79,7 @@ vector<int> find_occurrences(string text, string pattern) {
   }
   return v;
 }
+```
 
 ## 字符串哈希
 
@@ -94,71 +94,75 @@ ull hash(std::string s) {
     }
     return res;
 }
-
 ```
+
+
 
 ## 二分图最大匹配 ： 增广路算法（匈牙利算法）
 
 ```c++
+;#include <assert.h>
+#include <vector>
+
 struct augment_path {
-  vector<vector<int> > g;
-  vector<int> pa;  // 匹配
-  vector<int> pb;
-  vector<int> vis;  // 访问
-  int n, m;         // 两个点集中的顶点数量
-  int dfn;          // 时间戳记
-  int res;          // 匹配数
+    std::vector<std::vector<int> > g;
+    std::vector<int> pa;  // 匹配
+    std::vector<int> pb;
+    std::vector<int> vis;  // 访问
+    int n, m;              // 两个点集中的顶点数量
+    int dfn;               // 时间戳记
+    int res;               // 匹配数
 
-  augment_path(int _n, int _m) : n(_n), m(_m) {
-    assert(0 <= n && 0 <= m);
-    pa = vector<int>(n, -1);
-    pb = vector<int>(m, -1);
-    vis = vector<int>(n);
-    g.resize(n);
-    res = 0;
-    dfn = 0;
-  }
-
-  void add(int from, int to) {
-    assert(0 <= from && from < n && 0 <= to && to < m);
-    g[from].push_back(to);
-  }
-
-  bool dfs(int v) {
-    vis[v] = dfn;
-    for (int u : g[v]) {
-      if (pb[u] == -1) {
-        pb[u] = v;
-        pa[v] = u;
-        return true;
-      }
+    augment_path(int _n, int _m) : n(_n), m(_m) {
+        assert(0 <= n && 0 <= m);
+        pa = std::vector<int>(n, -1);
+        pb = std::vector<int>(m, -1);
+        vis = std::vector<int>(n);
+        g.resize(n);
+        res = 0;
+        dfn = 0;
     }
-    for (int u : g[v]) {
-      if (vis[pb[u]] != dfn && dfs(pb[u])) {
-        pa[v] = u;
-        pb[u] = v;
-        return true;
-      }
-    }
-    return false;
-  }
 
-  int work() {
-    while (true) {
-      dfn++;
-      int cnt = 0;
-      for (int i = 0; i < n; i++) {
-        if (pa[i] == -1 && dfs(i)) {
-          cnt++;
+    void add(int from, int to) {
+        assert(0 <= from && from < n && 0 <= to && to < m);
+        g[from].push_back(to);
+    }
+
+    bool dfs(int v) {
+        vis[v] = dfn;
+        for (int u : g[v]) {
+            if (pb[u] == -1) {
+                pb[u] = v;
+                pa[v] = u;
+                return true;
+            }
         }
-      }
-      if (cnt == 0) {
-        break;
-      }
-      res += cnt;
+        for (int u : g[v]) {
+            if (vis[pb[u]] != dfn && dfs(pb[u])) {
+                pa[v] = u;
+                pb[u] = v;
+                return true;
+            }
+        }
+        return false;
     }
-    return res;
-  }
+
+    int work() {
+        while (true) {
+            dfn++;
+            int cnt = 0;
+            for (int i = 0; i < n; i++) {
+                if (pa[i] == -1 && dfs(i)) {
+                    cnt++;
+                }
+            }
+            if (cnt == 0) {
+                break;
+            }
+            res += cnt;
+        }
+        return res;
+    }
 };
 
 ```
@@ -205,10 +209,9 @@ struct Hash {
 
 首先，我们要把或运算在二进制的视角下看待,两个数之间的或运算，只会越来越大，因为对于每一个数位，如果有一个数位上是1，那么结果就是1，如果两个数位上都是0，那么结果就是0，也就是说，对于a | b，b的每一个数位在或运算之后要不保持不变，要不从0变成1，从而使得结果变大，所以，如果我们要找到一个数，使得a | x最大，那么我们只需要找到一个数x，使得x的每一个数位都是1，那么a | x就是最大的了。
 
---2023/9/19
+<!-- --2023/9/19 -->
 
-###
+### 随机数生成
 ```c++
 std::mt19937 mt_rand(std::chrono::system_clock::now().time_since_epoch().count()); //随机数生成器
-
 ```
