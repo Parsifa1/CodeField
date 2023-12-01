@@ -15,6 +15,9 @@
         {
             "name": "C++",
             "path": "C++"
+        },
+        {
+            "path": "Haskell"
         }
     ],
     "settings": {
