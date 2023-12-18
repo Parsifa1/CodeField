@@ -102,7 +102,7 @@
         "editor.formatOnSave": false,
         "C_Cpp.intelliSenseEngine": "disabled",
         "files.autoSave": "onFocusChange",
-        "editor.fontSize": 12.5,
+        "editor.fontSize": 14,
         "editor.fontFamily": "JetBrains Mono,'苹方-简',monospace,JetBrainsMono Nerd Font Mono",
         "cph.general.onceMaintainerMessage": false
     }
