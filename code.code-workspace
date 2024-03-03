@@ -1,10 +1,6 @@
 {
     "folders": [
         {
-            "name": "C",
-            "path": "C"
-        },
-        {
             "name": "LaTeX",
             "path": "LaTeX"
         },
@@ -13,11 +9,13 @@
             "path": "Python"
         },
         {
-            "name": "C++",
-            "path": "C++"
+            "path": "Haskell"
         },
         {
-            "path": "Haskell"
+            "path": "c"
+        },
+        {
+            "path": "cpp"
         }
     ],
     "settings": {
