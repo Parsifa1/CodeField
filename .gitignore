@@ -5,3 +5,5 @@ Test
 C++/Luogu/.cph/
 *.bin
 target
+.direnv
+.envrc
