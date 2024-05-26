@@ -14,7 +14,7 @@
       devShells.default = pkgs.mkShell {
         packages = [
           (pkgs.python310.withPackages (ps:
-              with ps; [numpy matplotlib]))
+              with ps; [numpy matplotlib requests]))
         ];
       };
     });

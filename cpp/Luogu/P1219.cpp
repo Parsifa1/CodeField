@@ -5,7 +5,7 @@ int main() {
     int n, ans[15], cnt;
     std::cin >> n;
 
-    auto dfs = [&](auto&& self, int x) {
+    auto dfs = [&](auto&& dfs, int x) {
         if (x == n + 1) {
             cnt++;
             if (cnt <= 3) {
@@ -18,7 +18,7 @@ int main() {
             if (!vis[i] && !tr1[x + i] && !tr2[x - i + n]) {
                 vis[i] = tr1[x + i] = tr2[x - i + n] = 1;
                 ans[x] = i;
-                self(self, x + 1);
+                dfs(dfs, x + 1);
                 vis[i] = tr1[x + i] = tr2[x - i + n] = 0;
             }
         }

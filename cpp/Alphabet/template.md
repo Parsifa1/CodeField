@@ -1,7 +1,6 @@
 ## C++读入优化
 
-
-```c++	
+```c++
 // 关闭输入输出缓存，使效率提升
 	ios::sync_with_stdio(false);
 	cin.tie(NULL); cout.tie(NULL);
@@ -9,7 +8,9 @@
 ```
 
 ### 二分
+
 #### 往左找答案
+
 ```c++
 
 while (l < r) {
@@ -18,7 +19,9 @@ while (l < r) {
     else l = mid + 1;
 }
 ```
+
 ### 往右找答案
+
 ```c++
 while (l < r) {
     int mid = (l + r + 1) >> 1;	//(l+r+1)/2
@@ -26,6 +29,7 @@ while (l < r) {
     else r = mid - 1;
 }
 ```
+
 ### 拓展欧几里得求解线性同余方程组
 
 ```c++
@@ -53,7 +57,6 @@ pair<ll, ll> cal(ll a, ll b, ll c) {
 ```
 
 ## KMP ：字符串匹配算法
-
 
 ```c++
 vector<int> prefix_function(string s) {
@@ -83,7 +86,6 @@ vector<int> find_occurrences(string text, string pattern) {
 
 ## 字符串哈希
 
-
 ```c++
 
 ull mod = 1 << 30;
@@ -95,8 +97,6 @@ ull hash(std::string s) {
     return res;
 }
 ```
-
-
 
 ## 二分图最大匹配 ： 增广路算法
 
@@ -166,7 +166,9 @@ struct augment_path {
 };
 
 ```
+
 ## 哈希
+
 ```c++
 struct Hash {
     vector<ull> has1, has2;
@@ -234,4 +236,314 @@ struct custom_hash {
     }
 };
 ```
+
 使用`unordered_map<T1, T2, custom_hash> safe_map`来初始化。
+
+### 树状数组
+
+```c++
+template <typename T>
+struct Fenwick {
+    int n;
+    std::vector<T> a;
+
+    Fenwick(int n_ = 0) {
+        init(n_);
+    }
+
+    void init(int n_) {
+        n = n_;
+        a.assign(n, T{});
+    }
+
+    void add(int x, const T &v) {
+        for (int i = x + 1; i <= n; i += i & -i) {
+            a[i - 1] = a[i - 1] + v;
+        }
+    }
+
+    T sum(int x) {
+        T ans{};
+        for (int i = x; i > 0; i -= i & -i) {
+            ans = ans + a[i - 1];
+        }
+        return ans;
+    }
+
+    T rangeSum(int l, int r) {
+        return sum(r) - sum(l);
+    }
+
+    int select(const T &k) {
+        int x = 0;
+        T cur{};
+        for (int i = 1 << std::__lg(n); i; i /= 2) {
+            if (x + i <= n && cur + a[x + i - 1] <= k) {
+                x += i;
+                cur = cur + a[x - 1];
+            }
+        }
+        return x;
+    }
+};
+```
+
+### 快速幂
+
+```cpp
+int ksm(int x, int y) {
+    int ans = 1;
+    while (y > 0) {
+        if (y & 1) ans = (ll)ans * x % mod;
+        x = 1ll * x * x % mod;
+        y >>= 1;
+    }
+    return ans;
+}
+```
+
+### 并查集（DSU）
+
+```cpp
+struct DSU {
+    std::vector<int> f, siz;
+    DSU(int n) : f(n), siz(n, 1) { std::iota(f.begin(), f.end(), 0); }
+    int leader(int x) {
+        while (x != f[x]) x = f[x] = f[f[x]];
+        return x;
+    }
+    bool same(int x, int y) { return leader(x) == leader(y); }
+    bool merge(int x, int y) {
+        x = leader(x);
+        y = leader(y);
+        if (x == y) return false;
+        siz[x] += siz[y];
+        f[y] = x;
+        return true;
+    }
+    int size(int x) { return siz[leader(x)]; }
+};
+```
+
+### 取模类
+
+```cpp
+template<class T>
+constexpr T power(T a, i64 b) {
+    T res = 1;
+    for (; b; b /= 2, a *= a) {
+        if (b % 2) {
+            res *= a;
+        }
+    }
+    return res;
+}
+
+constexpr i64 mul(i64 a, i64 b, i64 p) {
+    i64 res = a * b - i64(1.L * a * b / p) * p;
+    res %= p;
+    if (res < 0) {
+        res += p;
+    }
+    return res;
+}
+template<i64 P>
+struct MLong {
+    i64 x;
+    constexpr MLong() : x{} {}
+    constexpr MLong(i64 x) : x{norm(x % getMod())} {}
+    
+    static i64 Mod;
+    constexpr static i64 getMod() {
+        if (P > 0) {
+            return P;
+        } else {
+            return Mod;
+        }
+    }
+    constexpr static void setMod(i64 Mod_) {
+        Mod = Mod_;
+    }
+    constexpr i64 norm(i64 x) const {
+        if (x < 0) {
+            x += getMod();
+        }
+        if (x >= getMod()) {
+            x -= getMod();
+        }
+        return x;
+    }
+    constexpr i64 val() const {
+        return x;
+    }
+    explicit constexpr operator i64() const {
+        return x;
+    }
+    constexpr MLong operator-() const {
+        MLong res;
+        res.x = norm(getMod() - x);
+        return res;
+    }
+    constexpr MLong inv() const {
+        assert(x != 0);
+        return power(*this, getMod() - 2);
+    }
+    constexpr MLong &operator*=(MLong rhs) & {
+        x = mul(x, rhs.x, getMod());
+        return *this;
+    }
+    constexpr MLong &operator+=(MLong rhs) & {
+        x = norm(x + rhs.x);
+        return *this;
+    }
+    constexpr MLong &operator-=(MLong rhs) & {
+        x = norm(x - rhs.x);
+        return *this;
+    }
+    constexpr MLong &operator/=(MLong rhs) & {
+        return *this *= rhs.inv();
+    }
+    friend constexpr MLong operator*(MLong lhs, MLong rhs) {
+        MLong res = lhs;
+        res *= rhs;
+        return res;
+    }
+    friend constexpr MLong operator+(MLong lhs, MLong rhs) {
+        MLong res = lhs;
+        res += rhs;
+        return res;
+    }
+    friend constexpr MLong operator-(MLong lhs, MLong rhs) {
+        MLong res = lhs;
+        res -= rhs;
+        return res;
+    }
+    friend constexpr MLong operator/(MLong lhs, MLong rhs) {
+        MLong res = lhs;
+        res /= rhs;
+        return res;
+    }
+    friend constexpr std::istream &operator>>(std::istream &is, MLong &a) {
+        i64 v;
+        is >> v;
+        a = MLong(v);
+        return is;
+    }
+    friend constexpr std::ostream &operator<<(std::ostream &os, const MLong &a) {
+        return os << a.val();
+    }
+    friend constexpr bool operator==(MLong lhs, MLong rhs) {
+        return lhs.val() == rhs.val();
+    }
+    friend constexpr bool operator!=(MLong lhs, MLong rhs) {
+        return lhs.val() != rhs.val();
+    }
+};
+
+template<>
+i64 MLong<0LL>::Mod = i64(1E18) + 9;
+
+
+template<int P>
+struct MInt {
+    int x;
+    constexpr MInt() : x{} {}
+    constexpr MInt(i64 x) : x{norm(x % getMod())} {}
+    
+    static int Mod;
+    constexpr static int getMod() {
+        if (P > 0) {
+            return P;
+        } else {
+            return Mod;
+        }
+    }
+    constexpr static void setMod(int Mod_) {
+        Mod = Mod_;
+    }
+    constexpr int norm(int x) const {
+        if (x < 0) {
+            x += getMod();
+        }
+        if (x >= getMod()) {
+            x -= getMod();
+        }
+        return x;
+    }
+    constexpr int val() const {
+        return x;
+    }
+    explicit constexpr operator int() const {
+        return x;
+    }
+    constexpr MInt operator-() const {
+        MInt res;
+        res.x = norm(getMod() - x);
+        return res;
+    }
+    constexpr MInt inv() const {
+        assert(x != 0);
+        return power(*this, getMod() - 2);
+    }
+    constexpr MInt &operator*=(MInt rhs) & {
+        x = 1LL * x * rhs.x % getMod();
+        return *this;
+    }
+    constexpr MInt &operator+=(MInt rhs) & {
+        x = norm(x + rhs.x);
+        return *this;
+    }
+    constexpr MInt &operator-=(MInt rhs) & {
+        x = norm(x - rhs.x);
+        return *this;
+    }
+    constexpr MInt &operator/=(MInt rhs) & {
+        return *this *= rhs.inv();
+    }
+    friend constexpr MInt operator*(MInt lhs, MInt rhs) {
+        MInt res = lhs;
+        res *= rhs;
+        return res;
+    }
+    friend constexpr MInt operator+(MInt lhs, MInt rhs) {
+        MInt res = lhs;
+        res += rhs;
+        return res;
+    }
+    friend constexpr MInt operator-(MInt lhs, MInt rhs) {
+        MInt res = lhs;
+        res -= rhs;
+        return res;
+    }
+    friend constexpr MInt operator/(MInt lhs, MInt rhs) {
+        MInt res = lhs;
+        res /= rhs;
+        return res;
+    }
+    friend constexpr std::istream &operator>>(std::istream &is, MInt &a) {
+        i64 v;
+        is >> v;
+        a = MInt(v);
+        return is;
+    }
+    friend constexpr std::ostream &operator<<(std::ostream &os, const MInt &a) {
+        return os << a.val();
+    }
+    friend constexpr bool operator==(MInt lhs, MInt rhs) {
+        return lhs.val() == rhs.val();
+    }
+    friend constexpr bool operator!=(MInt lhs, MInt rhs) {
+        return lhs.val() != rhs.val();
+    }
+};
+
+template<>
+int MInt<0>::Mod = 998244353;
+
+template<int V, int P>
+constexpr MInt<P> CInv = MInt<P>(V).inv();
+
+constexpr int P = 1000000007;
+using Z = MInt<P>;
+
+```
