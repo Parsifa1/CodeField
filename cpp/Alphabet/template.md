@@ -352,7 +352,7 @@ struct MLong {
     i64 x;
     constexpr MLong() : x{} {}
     constexpr MLong(i64 x) : x{norm(x % getMod())} {}
-    
+
     static i64 Mod;
     constexpr static i64 getMod() {
         if (P > 0) {
@@ -449,7 +449,7 @@ struct MInt {
     int x;
     constexpr MInt() : x{} {}
     constexpr MInt(i64 x) : x{norm(x % getMod())} {}
-    
+
     static int Mod;
     constexpr static int getMod() {
         if (P > 0) {
@@ -546,4 +546,27 @@ constexpr MInt<P> CInv = MInt<P>(V).inv();
 constexpr int P = 1000000007;
 using Z = MInt<P>;
 
+```
+
+### 质数筛筛欧拉函数
+
+```cpp
+constexpr int N = 1000000005;
+std::vector<int> prime, minp(N), phi(N);
+
+void pre(int n) {
+    phi[1] = 1;
+    for (int i = 2; i <= n; i++) {
+        if (minp[i] == 0) minp[i] = i, phi[i] = i - 1, prime.push_back(i);
+        for (auto p : prime) {
+            if (i * p > n) break;
+            minp[i * p] = p;
+            if (i % p == 0) {
+                phi[i * p] = phi[i] * p;
+                break;
+            }
+            phi[i * p] = phi[i] * phi[p];
+        }
+    }
+}
 ```

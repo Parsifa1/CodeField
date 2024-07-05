@@ -1,25 +1,25 @@
 #include <bits/stdc++.h>
 using namespace std;
-
-int t, n, prime[100001] = {0};
-bool all[100001] = {0};
+constexpr int N = 1000005;
+vector<int> prime, minp(N, 0), phi(N, 0);
 
 int main() {
+    int n;
     cin >> n;
-
-    for (int i = 2; i < n; i++) {
-        if (all[i] == 0) {
-            prime[t++] = i;
-        }
-
-        for (int j = 0; j < t && i * prime[j] <= n; j++) {
-            all[i * prime[j]] = 1;
-            if (i % prime[j] == 0) break;
+    for (int i = 2; i <= n; i++) {
+        if (minp[i] == 0) minp[i] = i, phi[i] = i - 1, prime.push_back(i);
+        for (auto p : prime) {
+            if (i * p > n) break;
+            minp[i * p] = p;
+            if (i % p == 0) {
+                phi[i * p] = phi[i] * p;
+                break;
+            } else {
+                phi[i * p] = phi[i] * phi[p];
+            }
         }
     }
-    for (int i = 0; i < t; i++) {
-        cout << prime[i] << " ";
-    }
-    system("pause");
+    for (auto x : prime) std::cout << x << " ";
+    std::cout << '\n';
     return 0;
 }

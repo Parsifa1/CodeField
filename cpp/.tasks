@@ -6,7 +6,7 @@ output=quickfix
 save=2
 
 [run]
-command:c,cpp=g++ -Ofast -fsanitize=address -g "$(VIM_FILEPATH)" -std=c++23 -o "./bin/$(VIM_FILENOEXT)" &&  ./bin/$(VIM_FILENOEXT)
+command:c,cpp=g++ -O2 -fsanitize=address -g "$(VIM_FILEPATH)" -std=c++23 -o "./bin/$(VIM_FILENOEXT)" &&  ./bin/$(VIM_FILENOEXT)
 command:markdown=:MarkdownPreview
 output=terminal
 pos=toggleterm
