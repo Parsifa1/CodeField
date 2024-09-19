@@ -6,5 +6,6 @@
         "vector": "cpp",
         "*.c": "c",
         "ranges": "cpp"
-    }
+    },
+    "cph.general.saveLocation": ""
 }

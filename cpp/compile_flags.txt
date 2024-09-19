@@ -1,5 +1,5 @@
 -Wall
--std=c++23
+-std=c++2b
 -Wno-unused-variable
 -Wno-unknown-attributes  
 -Wno-unused-but-set-variable 

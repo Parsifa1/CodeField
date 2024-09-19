@@ -2,7 +2,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import requests as rq
 
-resp = rq.get("http://www.google.com")
 print(resp.text)
 N = 1000
 x = np.random.rand(N)

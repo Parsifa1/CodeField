@@ -19,6 +19,7 @@ int main() {
             }
         }
     }
+    std::cout << prime.size() << '\n';
     for (auto x : prime) std::cout << x << " ";
     std::cout << '\n';
     return 0;

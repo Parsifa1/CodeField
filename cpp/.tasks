@@ -9,7 +9,6 @@ save=2
 command:c,cpp=g++ -O2 -fsanitize=address -g "$(VIM_FILEPATH)" -std=c++23 -o "./bin/$(VIM_FILENOEXT)" &&  ./bin/$(VIM_FILENOEXT)
 command:markdown=:MarkdownPreview
 output=terminal
-pos=toggleterm
 cwd=$(VIM_FILEDIR)
 save=2
 

@@ -325,7 +325,7 @@ struct DSU {
 };
 ```
 
-### 取模类
+### 取模类(i64)
 
 ```cpp
 template<class T>
@@ -338,7 +338,6 @@ constexpr T power(T a, i64 b) {
     }
     return res;
 }
-
 constexpr i64 mul(i64 a, i64 b, i64 p) {
     i64 res = a * b - i64(1.L * a * b / p) * p;
     res %= p;
@@ -440,10 +439,40 @@ struct MLong {
     }
 };
 
+//设置默认模数
 template<>
 i64 MLong<0LL>::Mod = i64(1E18) + 9;
 
+//逆元
+template<int V, int P>
+constexpr MLong<P> CInv = MLong<P>(V).inv();
 
+constexpr i64 P = 1000000007;
+using Z = MLong<P>;
+
+```
+
+### 取模类(int)
+
+```cpp
+template<class T>
+constexpr T power(T a, i64 b) {
+    T res = 1;
+    for (; b; b /= 2, a *= a) {
+        if (b % 2) {
+            res *= a;
+        }
+    }
+    return res;
+}
+constexpr i64 mul(i64 a, i64 b, i64 p) {
+    i64 res = a * b - i64(1.L * a * b / p) * p;
+    res %= p;
+    if (res < 0) {
+        res += p;
+    }
+    return res;
+}
 template<int P>
 struct MInt {
     int x;
@@ -535,11 +564,13 @@ struct MInt {
     friend constexpr bool operator!=(MInt lhs, MInt rhs) {
         return lhs.val() != rhs.val();
     }
-};
+}
 
+//设置默认模数
 template<>
 int MInt<0>::Mod = 998244353;
 
+//逆元
 template<int V, int P>
 constexpr MInt<P> CInv = MInt<P>(V).inv();
 
@@ -568,5 +599,59 @@ void pre(int n) {
             phi[i * p] = phi[i] * phi[p];
         }
     }
+}
+```
+
+### 凸包 + 旋转卡壳
+
+```cpp
+struct Point {
+    i64 x, y;
+    Point(i64 x = 0, i64 y = 0) : x(x), y(y) {}
+    friend Point operator+(Point A, Point B) { return Point(A.x + B.x, A.y + B.y); }
+    friend Point operator-(Point A, Point B) { return Point(A.x - B.x, A.y - B.y); }
+    friend Point operator*(Point A, double p) { return Point(A.x * p, A.y * p); }
+    friend Point operator/(Point A, double p) { return Point(A.x / p, A.y / p); }
+    friend bool operator<(const Point& a, Point& b) { return a.x < b.x || (a.x == b.x && a.y < b.y); }
+    friend i64 dot(const Point& x) { return x.x * x.x + x.y * x.y; }
+    friend double det(Point A, Point B) { return A.x * B.y - B.x * A.y; }
+    friend bool operator==(const Point& a, const Point& b) {
+        auto dcmp = [](double x) {
+            if (fabs(x) < eps)
+                return 0;
+            else
+                return x < 0 ? -1 : 1;
+        };
+        return !dcmp(a.x - b.x) && !dcmp(a.y - b.y);
+    }
+};
+
+std::vector<Point> ConvexHull(vector<Point> p) {
+    auto n = p.size();
+    vector<Point> ch(n + 1);
+    sort(p.begin(), p.end());
+    int m = 0;
+    for (int i = 0; i < n; ++i) {  // 下凸包
+        while (m > 1 && det(ch[m - 1] - ch[m - 2], p[i] - ch[m - 2]) <= 0) m--;
+        ch[m++] = p[i];
+    }
+    int k = m;
+    for (int i = n - 2; i >= 0; --i) {  // 上凸包
+        while (m > k && det(ch[m - 1] - ch[m - 2], p[i] - ch[m - 2]) <= 0) m--;
+        ch[m++] = p[i];
+    }
+    if (n > 1) m--;
+    return ch;
+}
+double Rotating_calipers(vector<Point> con) {
+    int con_num = con.size() - 1;
+    i64 op = 1, ans = 0;
+    for (int i = 0; i < con_num; ++i) {
+        while (det((con[i] - con[op]), (con[i + 1] - con[i])) <
+               det((con[i] - con[op + 1]), (con[i + 1] - con[i])))
+            op = (op + 1) % con_num;
+        ans = max(ans, max(dot(con[i] - con[op]), dot(con[i + 1] - con[op])));
+    }
+    return ans;
 }
 ```
