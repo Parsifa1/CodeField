@@ -1,8 +1,0 @@
--Wall
--std=c17
--Wno-unused-variable
--Wno-unknown-attributes  
--Wno-unused-but-set-variable 
--static-libgcc
--fsyntax-only
--l stdc++
