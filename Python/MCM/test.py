@@ -1,8 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import requests as rq
 
-print(resp.text)
 N = 1000
 x = np.random.rand(N)
 y = np.random.rand(N)

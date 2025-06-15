@@ -21,19 +21,19 @@
         devShells.default = pkgs.mkShell {
           allowUnfree = true;
           packages = [
-            pkgs.cudaPackages_12_1.cudatoolkit
-            pkgs.gcc14
+            # pkgs.cudaPackages_12_1.cudatoolkit
+            # pkgs.gcc14
             (pkgs.python310.withPackages (
               ps: with ps; [
                 numpy
                 matplotlib
-                torch-bin
+                # torch-bin
               ]
             ))
           ];
-          shellHook = ''
-            export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:${pkgs.cudaPackages_12_1.cudatoolkit}/lib64:/run/opengl-driver/lib"
-          '';
+          # shellHook = ''
+          #   export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:${pkgs.cudaPackages_12_1.cudatoolkit}/lib64:/run/opengl-driver/lib"
+          # '';
         };
       }
     );
